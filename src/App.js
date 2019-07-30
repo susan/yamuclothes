@@ -1,11 +1,15 @@
 import React from 'react';
-import MenuList from './Containers/MenuList'
+import HomePage from './Containers/HomePage'
+import Header from './Containers/Header'
 import './App.css';
 
 
 function App() {
   return (
-    <MenuList />
+    <>
+    <Header />
+    <HomePage />
+    </>
   );
 }
 
