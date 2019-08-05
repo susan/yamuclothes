@@ -1,5 +1,6 @@
 import React from 'react';
-import { MenuItem } from '../Components/MenuItem'
+import { MenuItem } from '../Components/MenuItem/MenuItem'
+
 
 const MenuList = () => {
 

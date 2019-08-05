@@ -1,5 +1,5 @@
 import React from 'react';
-import HomePage from './Containers/HomePage'
+import HomePage from './Containers/HomePage/HomePage'
 import Header from './Containers/Header'
 import './App.css';
 
