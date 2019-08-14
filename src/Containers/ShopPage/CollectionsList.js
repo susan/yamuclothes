@@ -10,7 +10,7 @@ const Sections = ( props ) => {
 
 	return(
 		<>
-      <h1 className="collectionTitle"> {props.section.title} </h1>
+      <h2 className="collectionTitle"> {props.section.title} </h2>
         <div className="collectionItem">
           {items}
         </div>

@@ -10,7 +10,7 @@ body {
 .menuItem {
   display: grid;
   justify-content: center;
-   width: 900px;
+   /*width: 900px;
    height: 500px;
   /*grid-auto-rows: minmax(150px, auto);*/
   grid-template-columns: repeat(3, 1fr 1fr 1fr);

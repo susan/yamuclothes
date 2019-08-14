@@ -4,9 +4,8 @@ const Collection = ( {item} ) => {
 
 	return(
 		<div className="collectionContent">
-     <p> name: {item.name} </p>
      <img className= "collectionImage" src={item.imageUrl} alt="" />
-     <p> price: ${item.price} </p>
+     <p> name: {item.name} <span> price: ${item.price} </span></p>
 		</div>
 		)
 }
