@@ -10,7 +10,7 @@ const Sections = ( props ) => {
 
 	return(
 		<>
-      <h2 className="collectionTitle"> {props.section.title} </h2>
+      <h1 className="collectionTitle"> {props.section.title.toUpperCase()} </h1>
         <div className="collectionItem">
           {items}
         </div>
