@@ -6,7 +6,8 @@ const Header = () => {
 
 	return (
     <div>
-    <Link to='/shop'> Shop </Link>
+    <p><Link to='/shop'> Shop </Link></p>
+   <p> <Link to='/'> Home </Link></p>
     </div>
 	)
 }

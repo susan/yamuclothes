@@ -1,0 +1,30 @@
+* {
+ box-sizing: border-box;
+ padding: 0;
+}
+
+
+
+.collectionItem {
+  display: grid;
+ /*  width: 900px;
+   height: 500px;*/
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 10px, 10px;
+}
+
+
+.collectionContent {
+  display: grid;
+    text-align: center;
+    justify-content: center;
+  border: 5px solid black;
+  margin: 20px;
+}
+
+
+.collectionImage {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

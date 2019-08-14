@@ -1,9 +1,11 @@
 import React from 'react'
+import SHOP_DATA from '../ShopPage/shop.data'
+import CollectionsList from '../ShopPage/CollectionsList'
 
 
 const WomensPage = () => {
   return (
-    <h1> I am the womens page</h1>
+    <CollectionsList section={SHOP_DATA[3]} />
   )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import Collection from './Collection'
+import './ShopPage.css';
 
 const Sections = ( props ) => {
 
@@ -9,8 +10,10 @@ const Sections = ( props ) => {
 
 	return(
 		<>
-    <h1> {props.section.title} </h1>
-    {items}
+      <h1 className="collectionTitle"> {props.section.title} </h1>
+        <div className="collectionItem">
+          {items}
+        </div>
     </>
 		)
 }
