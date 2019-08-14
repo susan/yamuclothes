@@ -1,10 +1,12 @@
 import React from 'react';
+import  { Link } from 'react-router-dom'
+import ShopComponent from './ShopPage/ShopComponent'
 
 const Header = () => {
 
 	return (
     <div>
-    <h1> I am the header </h1>
+    <Link to='/shop'> Shop </Link>
     </div>
 	)
 }
