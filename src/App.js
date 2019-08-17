@@ -12,6 +12,8 @@ import MensPage from './Containers/MensPage/MensPage';
 import WomensPage from './Containers/WomensPage/WomensPage';
 import ShopPage from './Containers/ShopPage/ShopComponent';
 
+import LoginandRegister from './Containers/LoginandRegisterPage/LoginandRegister';
+
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
       <Route exact path = '/womens' component={WomensPage} />
       <Route exact path = '/' component={HomePage} />
       <Route exact path = '/shop' component={ShopPage} />
+      <Route exact path = '/login' component={LoginandRegister} />
     </Switch>
     </>
   );
