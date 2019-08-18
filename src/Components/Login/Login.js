@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-
+import FormInput from '../FormInputComponent/FormInput'
+import CustomButton from '../CustomButtonComponent/CustomButton'
 
 class Login extends Component {
   state= {
@@ -13,7 +14,8 @@ class Login extends Component {
       [e.target.name]: e.target.value
   		})
   }
-  handleRegistration = (e, user)=> {
+  handleSubmit = (e)=> {
+  	e.preventDefault()
   	this.setState({
       user: this.state
   	})
@@ -23,57 +25,62 @@ class Login extends Component {
   	console.log(this.state)
   	return(
   		<>
-  		<div className="signin">
-	      <h1>I already have an account </h1>
-	      <p> Sign in with your email and password</p>
-	      <form>
-	        <input
+  		<div className='signin'>
+	      <h2>I already have an account </h2>
+	      <span> Sign in with your email and password</span>
+	      <form onSubmit={this.handleSubmit}>
+	        <FormInput
 	          name='email'
 	          value={this.state.email}
-	          placeholder='name'
-	          onChange={this.handleChange}
+	          label='email'
+	          required
+	          handleChange={this.handleChange}
 	          />
-	        <input
+	        <FormInput
 	          name='password'
+	          type='password'
 	          value={this.state.password}
-	          placeholder='password'
-	          onChange={this.handleChange}
+	          label='password'
+	          required
+	          handleChange={this.handleChange}
 	          />
-	        <button> SIGN IN</button>
-	        <button> SIGN IN WITH GOOGLE</button>
+	        <CustomButton type='submit'> SIGN IN</CustomButton>
+	        <CustomButton type='submit'> SIGN IN WITH GOOGLE</CustomButton>
 	      </form>
       </div>
 
       <div className="signup">
-	      <h1>I do not have an account </h1>
-	      <p> Sign up with your email and password</p>
+	      <h2>I do not have an account </h2>
+	      <span> Sign up with your email and password</span>
 	      <form onSubmit={this.handleRegistration}>
-	        <input
+	        <FormInput
 	          name='name'
 	          value={this.state.name}
-	          placeholder='display name'
-	          onChange={this.handleChange}
+	          label='display name'
+	          handleChange={this.handleChange}
 	          />
-	        <input
+	        <FormInput
 	          name='email'
 	          value={this.state.email}
-	          placeholder='email'
-	          onChange={this.handleChange}
+	          label='email'
+	          handleChange={this.handleChange}
 	          />
-          <input
+          <FormInput
 	          name='password'
+	          type='password'
 	          value={this.state.password}
-	          placeholder='password'
-	          onChange={this.handleChange}
+	         label='password'
+	          handleChange={this.handleChange}
 	          />
-	          <input
+	          <FormInput
 	          name='password'
+	          type='password'
 	          value={this.state.password}
-	          placeholder='confirm password'
-	          onChange={this.handleChange}
+	          label='confirm password'
+	          handleChange={this.handleChange}
 	          />
 
-	        <button> SIGN UP</button>
+	        <CustomButton type='submit'> SIGN UP</CustomButton>
 	      </form>
       </div>
 
