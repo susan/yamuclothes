@@ -21,7 +21,9 @@ class Login extends Component {
   handleSubmit = (e)=> {
   	e.preventDefault()
   	this.setState({
-      user: this.state
+      name: '',
+      email: '',
+      password: ''
   	})
   }
 
@@ -56,40 +58,7 @@ class Login extends Component {
 	      </form>
       </div>
 
-      <div className="signup">
-	      <h2>I do not have an account </h2>
-	      <span> Sign up with your email and password</span>
-	      <form onSubmit={this.handleRegistration}>
-	        <FormInput
-	          name='name'
-	          value={this.state.name}
-	          label='display name'
-	          handleChange={this.handleChange}
-	          />
-	        <FormInput
-	          name='email'
-	          value={this.state.email}
-	          label='email'
-	          handleChange={this.handleChange}
-	          />
-          <FormInput
-	          name='password'
-	          type='password'
-	          value={this.state.password}
-	         label='password'
-	          handleChange={this.handleChange}
-	          />
-	          <FormInput
-	          name='password'
-	          type='password'
-	          value={this.state.password}
-	          label='confirm password'
-	          handleChange={this.handleChange}
-	          />
 
-	        <CustomButton type='submit'> SIGN UP</CustomButton>
-	      </form>
-      </div>
 
       </>
   		)
