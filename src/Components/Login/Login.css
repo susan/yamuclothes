@@ -1,5 +1,14 @@
-sign-in {
-  width: 30vw;
+.sign-in {
+  width: 30vp;
   display: flex;
   flex-direction: column;
+}
+
+/*.title {
+  text-align: center;
+}*/
+
+.buttons {
+ 	/*display: flex;*/
+ 	justify-content: space-between;
 }
