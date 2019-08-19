@@ -26,7 +26,7 @@ class Signup extends Component {
 
   handleSubmit = async (e)=> {
   	e.preventDefault()
-
+    console.log("is this working")
   	const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
@@ -60,7 +60,7 @@ class Signup extends Component {
        <div className="sign-up">
 	      <h2>I do not have an account </h2>
 	      <span> Sign up with your email and password</span>
-	      <form onSubmit={this.handleRegistration}>
+	      <form onSubmit={this.handleSubmit}>
 	        <FormInput
 	          name='displayName'
 	          value={this.state.displayName}
