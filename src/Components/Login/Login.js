@@ -8,7 +8,6 @@ import './Login.css'
 
 class Login extends Component {
   state= {
-  	name: "" ,
   	email: "",
   	password:"",
   }
@@ -21,21 +20,19 @@ class Login extends Component {
 
 
   handleSubmit = async (e) => {
+    console.log("is this firing")
   	e.preventDefault()
-  	const { email, password } = this.state
+  	const { email, password } = this.state;
 
-  	  try {
-        await auth.signInWithEmailAndPassword(email, password);
-        this.setState(
-      	  { email: '', password: '' }
-        );
-      } catch (error) {
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      this.setState({ email: '', password: '' });
+    } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   render(){
-  	console.log(this.state)
   	return(
   		<>
   		<div className='sign-in'>
@@ -60,7 +57,7 @@ class Login extends Component {
 	          handleChange={this.handleChange}
 	          />
 	         <div className='buttons'>
-	        	<CustomButton type='submit'> SIGN IN</CustomButton>
+	        	<CustomButton type='submit' value='submit'> SIGN IN</CustomButton>
 	        	<CustomButton onClick={signInWithGoogle} isGoogleSignIn> SIGN IN WITH GOOGLE</CustomButton>
 	         </div>
 	      </form>

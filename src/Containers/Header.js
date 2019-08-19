@@ -4,7 +4,13 @@ import ShopComponent from './ShopPage/ShopComponent'
 import './Header.css';
 import { auth } from '../firebase/firebase.utils';
 
-const Header = ({currentUser}) => {
+import { connect } from 'react-redux';
+
+
+import CartIcon from '../Components/cart-icon/cartIcon'
+import CartDropdown from '../Components/cartDropdown/cartDropdown'
+
+const Header = ({currentUser, hidden }) => {
 
 	return (
     <div className="header-container" >
@@ -20,8 +26,23 @@ const Header = ({currentUser}) => {
            :
         (<Link className="option" to='/login'> SIGN IN </Link>)
       }
+      <CartIcon />
       </div>
+      { !hidden
+         ?
+         <CartDropdown />
+         :
+         null
+      }
     </div>
 	)
 }
-export default Header;
+
+const mapStateToProps = (state) => (
+  {
+   currentUser: state.user.currentUser,
+   hidden: state.cart.hidden
+  }
+)
+
+export default connect(mapStateToProps)(Header);
