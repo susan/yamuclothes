@@ -35,7 +35,7 @@ class MenuList extends Component  {
   }
   render() {
     return (
-    <div className= 'menuItem'>
+    <div className= 'menu-item'>
       {
   	    this.state.sections.map( choice  => {
   	      return <MenuItem key={choice.id} className= {`content${choice.id}`} choice={choice} />

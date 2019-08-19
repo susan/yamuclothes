@@ -13,7 +13,7 @@ color: black;
 
 }
 
-.menuItem {
+.menu-item {
   display: grid;
   justify-content: center;
    /*width: 900px;

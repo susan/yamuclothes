@@ -5,10 +5,10 @@ import Signup from '../../Components/Register/Signup';
 const LoginandRegister = () => {
 
 	return (
-    <>
+    <div className="Login-and-Register">
     	<Login />
     	<Signup />
-    </>
+    </div>
 		)
 }
 

@@ -57,7 +57,7 @@ class Signup extends Component {
 
 	render(){
 		return(
-       <div className="signup">
+       <div className="sign-up">
 	      <h2>I do not have an account </h2>
 	      <span> Sign up with your email and password</span>
 	      <form onSubmit={this.handleRegistration}>
@@ -70,6 +70,7 @@ class Signup extends Component {
 	          />
 	        <FormInput
 	          name='email'
+	          type= 'email'
 	          value={this.state.email}
 	          label='email'
 	          handleChange={this.handleChange}
@@ -85,7 +86,7 @@ class Signup extends Component {
 	          />
 	          <FormInput
 	          name='confirmPassword'
-	          type='confirmPassword'
+	          type='password'
 	          value={this.state.confirmPassword}
 	          label='confirm Password'
 	          handleChange={this.handleChange}
