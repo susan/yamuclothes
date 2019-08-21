@@ -29,13 +29,4 @@
     font-size: 36px;
   }
 
-  /*.items {
-   display: grid;
-  justify-content: center;
-   width: 900px;
-   height: 500px;
-  grid-auto-rows: minmax(150px, auto);
-  grid-template-columns: repeat(3, 1fr 1fr 1fr);
-  grid-gap: 10px, 20px;
-  }*/
 

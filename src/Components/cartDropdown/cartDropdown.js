@@ -11,6 +11,7 @@ import  { selectCartItems }  from '../../Selectors/cartSelectors'
 
 import CustomButton from '../CustomButtonComponent/CustomButton'
 import { toggleCartHidden } from '../../Actions/cartAction'
+import './cartDropdownStyles.css';
 
 const CartDropdown = ( {cartItems, history, dispatch } ) => {
 
