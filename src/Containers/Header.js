@@ -35,8 +35,9 @@ const Header = ({currentUser, hidden }) => {
          null
       }
     </div>
-	)
+	);
 }
+
 
 const mapStateToProps = (state) => (
   {

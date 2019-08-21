@@ -12,6 +12,7 @@ import SneakersPage from './Containers/SneakersPage/SneakersPage';
 import MensPage from './Containers/MensPage/MensPage';
 import WomensPage from './Containers/WomensPage/WomensPage';
 import ShopPage from './Containers/ShopPage/ShopComponent';
+import CheckoutPage from './Containers/CheckoutPage/CheckoutPage';
 
 import LoginandRegister from './Containers/LoginandRegisterPage/LoginandRegister';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
@@ -59,6 +60,7 @@ class App extends Component {
         <Route exact path = '/womens' component={WomensPage} />
         <Route exact path = '/' component={HomePage} />
         <Route exact path = '/shop' component={ShopPage} />
+        <Route exact path = '/checkout' component={CheckoutPage} />
         <Route exact path = '/login'
         render={
           () => this.props.currentUser

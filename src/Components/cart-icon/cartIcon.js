@@ -13,7 +13,7 @@ import { toggleCartHidden } from '../../Actions/cartAction'
 const cartIcon = (props) => {
 
 	const handleClick = () => {
-		console.log('is this clicked')
+		//console.log('is this clicked')
 		return props.toggleX()
 	}
 
