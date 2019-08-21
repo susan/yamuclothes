@@ -10,3 +10,9 @@ export const selectShopData =
    //take that shopData object and return only the collections property
    (shopData) => shopData.collections
  	)
+
+// export const selectCollectionsForPreview = createSelector(
+//   [selectShopData],
+//   collections =>
+//     collections ? Object.keys(collections).map(key => collections[key]) : []
+// );

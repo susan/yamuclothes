@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 const Collection = ( {item, addItem } ) => {
 
    const handleClick = () => {
-      console.log(item)
+      //console.log(item)
       return addItem(item)
    }
 

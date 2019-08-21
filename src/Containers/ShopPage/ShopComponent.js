@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import CollectionsList from './CollectionsList';
+import { Route } from 'react-router-dom'
 
 import { createStructuredSelector } from 'reselect';
 import { selectShopData } from '../../Selectors/shopSelectors'
 
-const ShopPage = (props) => {
+const ShopPage = ({collections}) => {
 
-  const categories = props.collections.map(section => {
+  const categories = collections.map(section => {
     return <CollectionsList key={section.id} section = {section} />
   })
 

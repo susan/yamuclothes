@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import HomePage from './Containers/HomePage/HomePage'
 import Header from './Containers/Header'
+import { createStructuredSelector } from 'reselect';
 import './App.css';
+
 
 import { Switch, Route , Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -15,36 +17,49 @@ import ShopPage from './Containers/ShopPage/ShopComponent';
 import CheckoutPage from './Containers/CheckoutPage/CheckoutPage';
 
 import LoginandRegister from './Containers/LoginandRegisterPage/LoginandRegister';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { firestore, auth, createUserProfileDocument, convertCollectionsSnapshotToMap } from './firebase/firebase.utils';
+
+import { selectCurrentUser } from './Selectors/userSelector';
 
 
-import { setCurrentUser } from './Actions/userAction'
+import { setCurrentUser } from './Actions/userAction';
+import { updateCollections } from './Actions/shopAction';
 
 class App extends Component {
 
-
   unsubscribeFromAuth = null;
+  unsubscribeFromSnapshot = null;
 
   componentDidMount() {
+    const {setCurrentUser} = this.props
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
-          this.props.setCurrentUser({
+          setCurrentUser({
             id: snapShot.id,
             ...snapShot.data()
           });
         });
       }
 
-      this.props.setCurrentUser(userAuth);
+      setCurrentUser(userAuth);
     });
+
+   const collectionRef = firestore.collection('collections');
+  this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+    const collectionsMap = convertCollectionsSnapshotToMap(snapshot)
+    this.props.updateCollections(collectionsMap)
+  })
+
+
   }
 
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();
+    this.unsubscribeFromSnapshot();
   }
 
 
@@ -75,13 +90,14 @@ class App extends Component {
   }
 }
 
-  const mapStateToProps = (state) => {
-    return { currentUser: this.state.user.currentUser}
-  }
+  const mapStateToProps =  createStructuredSelector ({
+     currentUser: selectCurrentUser
+  });
 
   const mapDispatchToProps = (dispatch) => ({
-    setCurrentUser: (user) => dispatch(setCurrentUser(user))
+    setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+    updateCollections: (collectionsMap) => dispatch(updateCollections(collectionsMap))
   })
 
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
