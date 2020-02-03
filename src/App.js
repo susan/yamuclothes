@@ -23,7 +23,7 @@ import { selectCurrentUser } from './Selectors/userSelector';
 
 
 import { setCurrentUser } from './Actions/userAction';
-import { updateCollections } from './Actions/shopAction';
+import { fetchCollectionsStart } from './Actions/shopAction';
 
 class App extends Component {
 
@@ -47,11 +47,13 @@ class App extends Component {
       setCurrentUser(userAuth);
     });
 
-   const collectionRef = firestore.collection('collections');
-  this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
-    const collectionsMap = convertCollectionsSnapshotToMap(snapshot)
-    this.props.updateCollections(collectionsMap)
-  })
+   //const collectionRef = firestore.collection('collections');
+   const { fetchCollectionsStart } = this.props
+   fetchCollectionsStart();
+   // this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+   //   const collectionsMap = convertCollectionsSnapshotToMap(snapshot)
+   //   this.props.updateCollections(collectionsMap)
+   //})
 
 
   }
@@ -59,7 +61,7 @@ class App extends Component {
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();
-    this.unsubscribeFromSnapshot();
+    //this.unsubscribeFromSnapshot();
   }
 
 
@@ -96,7 +98,8 @@ class App extends Component {
 
   const mapDispatchToProps = (dispatch) => ({
     setCurrentUser: (user) => dispatch(setCurrentUser(user)),
-    updateCollections: (collectionsMap) => dispatch(updateCollections(collectionsMap))
+    //updateCollections: (collectionsMap) => dispatch(updateCollections(collectionsMap))
+    fetchCollectionsStart: () => dispatch(fetchCollectionsStart())
   })
 
 
